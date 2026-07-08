@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保卫萝卜大作战 🥕</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <div id="hud">
+    <div class="hud-left">
+      <span class="stat">🥕 <b id="hp">10</b></span>
+      <span class="stat">💰 <b id="gold">280</b></span>
+      <span class="stat">🌊 第 <b id="wave">0</b>/20 波</span>
+    </div>
+    <button id="nextBtn" class="hud-btn primary" hidden>🚀 开始出怪</button>
+    <div class="hud-right">
+      <button id="pauseBtn" class="hud-btn" title="暂停/继续">⏸️</button>
+      <button id="speedBtn" class="hud-btn" title="加速">▶️ x1</button>
+      <button id="muteBtn" class="hud-btn" title="声音开关">🔊</button>
+      <button id="restartBtn" class="hud-btn" title="重新开始">🔄</button>
+    </div>
+  </div>
+  <div id="stage">
+    <canvas id="game"></canvas>
+    <div id="startScreen" class="overlay">
+      <h1>🥕 保卫萝卜大作战</h1>
+      <p class="sub">可爱的怪物们要来啃萝卜啦，快建造炮塔保护它！</p>
+      <div class="help">
+        <div>🖱️ 点击空地建造炮塔，点击已有炮塔可升级 / 出售</div>
+        <div>🎁 地图上出现礼物盒时，快点它捡金币！</div>
+        <div>🚀 提前召唤下一波怪物，可以获得奖励金币</div>
+        <div>❄️ 用雪花减速 + 火箭轰炸，守住 20 波就胜利！</div>
+      </div>
+      <button id="startBtn" class="big-btn">开始游戏 ▶</button>
+    </div>
+    <div id="endScreen" class="overlay" hidden>
+      <h1 id="endTitle"></h1>
+      <div id="endStars"></div>
+      <p id="endStats"></p>
+      <button id="againBtn" class="big-btn">再来一局 🔄</button>
+    </div>
+  </div>
+  <div id="foot">💡 小提示：风扇的扇叶能吹穿一整排怪物，太阳花会默默帮你赚钱哦～</div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
