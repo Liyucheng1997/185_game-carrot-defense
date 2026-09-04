@@ -12,26 +12,38 @@
     <div class="hud-left">
       <span class="stat">🥕 <b id="hp">10</b></span>
       <span class="stat">💰 <b id="gold">280</b></span>
-      <span class="stat">🌊 第 <b id="wave">0</b>/20 波</span>
+      <span class="stat">🌊 第 <b id="wave">0</b>/<span id="waveTotal">20</span> 波</span>
+      <span class="stat tag" id="mapTag">青青草原 · 普通</span>
     </div>
     <button id="nextBtn" class="hud-btn primary" hidden>🚀 开始出怪</button>
     <div class="hud-right">
-      <button id="pauseBtn" class="hud-btn" title="暂停/继续">⏸️</button>
+      <button id="pauseBtn" class="hud-btn" title="暂停/继续 (空格)">⏸️</button>
       <button id="speedBtn" class="hud-btn" title="加速">▶️ x1</button>
       <button id="muteBtn" class="hud-btn" title="声音开关">🔊</button>
-      <button id="restartBtn" class="hud-btn" title="重新开始">🔄</button>
+      <button id="restartBtn" class="hud-btn" title="回到主菜单">🏠</button>
     </div>
+  </div>
+  <div id="hud2">
+    <div class="skills">
+      <button class="skill" id="skFire" title="陨石火球 (1)：点击地图砸落，范围伤害">🔥 陨石<small id="skFireT">就绪</small></button>
+      <button class="skill" id="skFreeze" title="时间冻结 (2)：全场怪物定身 3 秒（幽灵也怕）">❄️ 冻结<small id="skFreezeT">就绪</small></button>
+      <button class="skill" id="skHeal" title="萝卜修复 (3)：花 120 金币恢复 1 点血">💚 修复<small id="skHealT">就绪</small></button>
+    </div>
+    <div id="wavePreview">💡 无怪物时，炮塔会自动拆地图上的障碍物赚金币～</div>
   </div>
   <div id="stage">
     <canvas id="game"></canvas>
     <div id="startScreen" class="overlay">
       <h1>🥕 保卫萝卜大作战</h1>
-      <p class="sub">可爱的怪物们要来啃萝卜啦，快建造炮塔保护它！</p>
+      <div id="mapList"></div>
+      <div class="row">
+        <span class="lbl">难度</span>
+        <div id="diffList" class="seg"></div>
+        <label class="chk"><input type="checkbox" id="endlessChk"> ♾️ 无尽模式</label>
+      </div>
       <div class="help">
-        <div>🖱️ 点击空地建造炮塔，点击已有炮塔可升级 / 出售</div>
-        <div>🎁 地图上出现礼物盒时，快点它捡金币！</div>
-        <div>🚀 提前召唤下一波怪物，可以获得奖励金币</div>
-        <div>❄️ 用雪花减速 + 火箭轰炸，守住 20 波就胜利！</div>
+        <div>🖱️ 点空地建塔 · 点炮塔升级/出售 · 🎁 礼物盒点了白拿钱 · 🚀 提前召唤有奖励</div>
+        <div>🪨 炮塔闲着时会拆障碍物赚钱腾地 · 🔥❄️💚 三个主动技能关键时刻救命</div>
       </div>
       <button id="startBtn" class="big-btn">开始游戏 ▶</button>
     </div>
@@ -39,10 +51,13 @@
       <h1 id="endTitle"></h1>
       <div id="endStars"></div>
       <p id="endStats"></p>
-      <button id="againBtn" class="big-btn">再来一局 🔄</button>
+      <div class="row">
+        <button id="againBtn" class="big-btn">再来一局 🔄</button>
+        <button id="menuBtn" class="big-btn alt">选择地图 🗺️</button>
+      </div>
     </div>
   </div>
-  <div id="foot">💡 小提示：风扇的扇叶能吹穿一整排怪物，太阳花会默默帮你赚钱哦～</div>
+  <div id="foot">💡 小提示：毒蘑菇无视铁甲骑士的护甲，磁铁能把冲到门口的怪推回去；快捷键 空格 暂停，1/2/3 放技能。</div>
 </div>
 <script src="game.js"></script>
 </body>
